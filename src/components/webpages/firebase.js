@@ -20,15 +20,21 @@ export const addUser = ([name, email, accountno, balance]) => {
 
 export const addTransaction = (receiver, sender, amount) => {
   const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleString();
-  return db
-    .collection("transactions")
-    .add({
-      receiver: receiver,
-      sender: sender,
-      amount: amount,
-      createdAt: formattedDate,
-    });
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  };
+  const formattedDate = currentDate.toLocaleString("en-US", options);
+  return db.collection("transactions").add({
+    receiver: receiver,
+    sender: sender,
+    amount: amount,
+    createdAt: formattedDate,
+  });
 };
 
 export const transact = (id1, balance1, id2, balance2, amount) => {
@@ -50,4 +56,4 @@ export const transact = (id1, balance1, id2, balance2, amount) => {
 
 export { db };
 // firebase.initializeApp(firebaseConfig);
-export default firebaseApp
+export default firebaseApp;

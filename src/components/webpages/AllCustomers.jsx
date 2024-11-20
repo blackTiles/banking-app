@@ -25,8 +25,19 @@ function AllCustomers() {
   };
 
   return (
-    <div className="allOurCustomers" css={CSS}>
-      <h1>Our Valuable Customers</h1>
+    <div className="allOurCustomers" css={CSS} style={{
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "100vh",
+      background:
+        "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,88,1) 35%, rgba(12,19,20,1) 100%)",
+    }}>
+      <h1 style={{
+        color: "white",
+        marginBottom: "50px",
+      }}>Our Valuable Customers</h1>
       <div className="table">
         <table>
           <thead>
@@ -57,18 +68,6 @@ function AllCustomers() {
   );
 }
 const CSS = css`
-display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background: rgb(72, 202, 228);
-  background: linear-gradient(
-    180deg,
-    rgba(72, 202, 228, 1) 0%,
-    rgba(173, 232, 244, 1) 50%,
-    rgba(202, 240, 248, 1) 100%
-  );
   font-family: "Roboto", sans-serif;
   h1 {
     text-align: center;
@@ -87,11 +86,8 @@ display: flex;
   .table {
     display: table;
     overflow: scroll;
+    background-color: #fff;
     table {
-      position: absolute;
-      left: 50%;
-      top: 60%;
-      transform: translate(-50%, -50%);
       table-layout: fixed;
       color: var(--powder-blue);
       border-collapse: collapse;

@@ -8,10 +8,8 @@
 .home,
 .services,
 .services {
-  background-image: url('');
-  background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
+
 }

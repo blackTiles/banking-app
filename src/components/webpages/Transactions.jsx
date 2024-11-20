@@ -24,8 +24,18 @@ function Transactions() {
   }
 
   return (
-    <div className="transactions" css={CSS}>
-      <h1>Transaction History</h1>
+    <div className="transactions" css={CSS} style={{
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "100vh",
+      background:
+        "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,88,1) 35%, rgba(12,19,20,1) 100%)",
+    }}>
+      <h1 style={{
+        color: "white",
+      }}>Transaction History</h1>
       <div className="table">
         <table>
           <thead>
@@ -44,7 +54,7 @@ function Transactions() {
                 <td>{obj.data.sender}</td>
                 <td>{obj.data.receiver}</td>
                 <td>{obj.data.amount}</td>
-                <td>{`${obj.data.createdAt?.toDate().toDateString() ? obj.data.createdAt?.toDate().toDateString() : "Not"} ${obj.data.createdAt?.toDate().toLocaleTimeString('en-US') ? obj.data.createdAt?.toDate().toLocaleTimeString('en-US') : "Available"}`}</td>
+                <td>{`${obj.data.createdAt}`}</td>
               </tr>
             ))}
           </tbody>
@@ -55,19 +65,6 @@ function Transactions() {
 }
 
 const CSS = css`
-display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background: rgb(72, 202, 228);
-  background: linear-gradient(
-    180deg,
-    rgba(72, 202, 228, 1) 0%,
-    rgba(173, 232, 244, 1) 50%,
-    rgba(202, 240, 248, 1) 100%
-  );
-  
   font-family: "Roboto", sans-serif;
   h1 {
     text-align: center;
@@ -87,10 +84,7 @@ display: flex;
     display: table;
     overflow: scroll;
     table {
-      position: absolute;
-      left: 50%;
-      top: 60%;
-      transform: translate(-50%, -50%);
+      background-color: #fff;
       table-layout: fixed;
       color: var(--powder-blue);
       border-collapse: collapse;
